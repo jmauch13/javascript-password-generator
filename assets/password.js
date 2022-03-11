@@ -1,60 +1,161 @@
 // Assignment code here
-// const bigLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// console.log(bigLetters.toUpperCase());
+// Array of special characters to be included in password
+var specialChars = [
+  '@',
+  '%',
+  '+',
+  '\\',
+  '/',
+  "'",
+  '!',
+  '#',
+  '$',
+  '^',
+  '?',
+  ':',
+  ',',
+  ')',
+  '(',
+  '}',
+  '{',
+  ']',
+  '[',
+  '~',
+  '-',
+  '_',
+  '.'
+];
+// Array of numeric characters to be included in password
+var numericChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// Array of lowercase characters to be included in password
+var lowerCaseChars = [
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+  'g',
+  'h',
+  'i',
+  'j',
+  'k',
+  'l',
+  'm',
+  'n',
+  'o',
+  'p',
+  'q',
+  'r',
+  's',
+  't',
+  'u',
+  'v',
+  'w',
+  'x',
+  'y',
+  'z'
+];
+// Array of uppercase characters to be included in password
+var upperCaseChars = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z'
+];
 
-// const littleLetters = "abcdefghijklmnopqrstuvwxyz";
-// console.log(littleLetters.toLowerCase());
+var passLength = "";
+var lowerCase;
+var upperCase;
+var numChars;
+var spChars;
 
+function generatePassword() {
 
-// var specialSymbols ="!@#$%^&*()_+";
-
-
-
-  let number = prompt("Enter your password length.", "between 8-128 characters");
-  if (numbers = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
-  26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
-  46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,
-  66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85,
-  86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104,
-  105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
-  121, 122, 123, 124, 125, 126, 127, 128]);
-  let min = Math.min( ...numbers )
-  // min is 8
-  let max = Math.max( ...numbers )
-  // max is 128
-  console.log("min = " + min);
-  console.log("max = " + max);
+// need to loop back to ask again if length requirements not met
+ var passLength = prompt("How many characters would you like for your password?", "choose between 8-128");
+  if (passLength < 8) {
+    alert("Password must be at least 8 characters");
   
 
-  let bigL = prompt("Would you like to include uppercase letters?", "yes or no");
-  if (yes = (""));
-  else alertcd("Error.  Please confirm yes or no.");
-  let bigLetters = "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z";
-  console.log(bigLetters.toUpperCase());
-
-  let littleL = prompt("Would you like to include lowercase letters?", "yes or no");
-  let y = ("");
-  let n = ("");
-  let littleLetters = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z";
-  console.log(littleLetters.toLowerCase());
-
-  let special = prompt("Would you like to include special characters?", "yes or no");
-  let positive = ("");
-  let negative = ("");
-  let specialChar = "!, @, #, $, %, ^, &, *, (, ), _, +, =,";
-  console.log("");
+} else if (passLength > 128) {
+    alert("Password cannot be more than 128 characters");
   
-  // if (passwordLength < 8 || passwordLength > 128) {
-    //  return;
-   //  } else {
-   //  ("Not a valid number.  Please choose a number between 1-128.");
-   // }
-   // return;
-//  console.log(passwordLength);
- // }); 
+}
+
+
+  var lowerCase = prompt("Would you like to include lowercase characters?", "yes or no");
+
+  if (lowerCase) {
+    console.log(lowerCaseChars);
+    }
+  
+
+  var upperCase = prompt("Would you like to include uppercase characters?", "yes or no");
+
+  if (upperCase) {
+    console.log(upperCaseChars);
+  }
+
+  var numChars = prompt("Would you like to include numbers in your password?", "yes or no");
+
+  if (numChars) {
+    console.log(numericChars);
+  }
+
+  var spChars = prompt("Would you like to include special characters?", "yes or no");
+
+  if (spChars) {
+    console.log(specialChars);
+  }
+}
 
 
 
+
+
+
+
+
+
+//function that gets password options getpasswordoptions()
+
+
+
+//function that gets a random number and we can use this whenever we want to pick a random element form one of the the arrays above by index
+//function randomNumGenerator(input) {
+var createPassword = "";
+for (var i = 0; i < passLength; i++) {
+  passChar[
+    Math.floor(Math.random() * passChar.length)];
+    createPassword += passChar[
+      Math.floor(Math.random() * passChar.length)];
+  }
+//function generate password
+
+//function write password
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
